@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-gray-100">
+    <ActionBar title="Phone Sign In" class="action-bar">
+        <NavigationButton text="Back" />
+    </ActionBar>
+    
+    <StackLayout class="p-6">
+        <Label text="Enter your phone number" class="text-lg font-semibold mb-2" />
+        <Label text="We'll send you a verification code" class="text-gray-500 mb-6" />
+        
+        <GridLayout columns="auto, *" class="mb-4">
+            <DropDown col="0" 
+                     items="{{ countryCodes }}" 
+                     selectedIndex="{{ selectedCountryIndex }}"
+                     class="w-24 p-3 bg-white rounded-lg" />
+            <TextField col="1" 
+                      hint="Phone number" 
+                      text="{{ phoneNumber }}"
+                      keyboardType="phone"
+                      class="ml-2 p-3 bg-white rounded-lg" />
+        </GridLayout>
+        
+        <Button text="Send Code" 
+                tap="{{ onSendCode }}"
+                class="bg-blue-600 text-white font-semibold p-3 rounded-lg" />
+                
+        <StackLayout visibility="{{ showVerification ? 'visible' : 'collapsed' }}" class="mt-6">
+            <Label text="Enter verification code" class="text-lg font-semibold mb-2" />
+            <TextField hint="Code" 
+                      text="{{ verificationCode }}"
+                      keyboardType="number"
+                      maxLength="6"
+                      class="mb-4 p-3 bg-white rounded-lg" />
+            <Button text="Verify" 
+                    tap="{{ onVerifyCode }}"
+                    class="bg-blue-600 text-white font-semibold p-3 rounded-lg" />
+        </StackLayout>
+    </StackLayout>
+</Page>

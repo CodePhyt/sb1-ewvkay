@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-gray-100">
+    <ActionBar title="LingualLink" class="action-bar" flat="true" />
+    
+    <ScrollView>
+        <StackLayout class="p-6">
+            <Image src="~/assets/logo.png" width="120" height="120" class="mb-6 self-center" />
+            
+            <Label text="Welcome to LingualLink" class="text-2xl font-bold text-center mb-2" />
+            <Label text="Connect across languages" class="text-gray-500 text-center mb-8" />
+
+            <StackLayout class="bg-white rounded-lg p-4 mb-4">
+                <TextField hint="Email" 
+                          text="{{ email }}" 
+                          keyboardType="email" 
+                          autocorrect="false" 
+                          autocapitalizationType="none"
+                          class="mb-3 p-3 border-b border-gray-200" />
+                
+                <TextField hint="Password" 
+                          text="{{ password }}" 
+                          secure="true"
+                          class="mb-4 p-3 border-b border-gray-200" />
+                
+                <Button text="Sign In" 
+                        tap="{{ onSignIn }}" 
+                        class="bg-blue-600 text-white font-semibold p-3 rounded-lg mb-3" />
+                
+                <Label text="Forgot password?" 
+                       tap="{{ onForgotPassword }}" 
+                       class="text-blue-600 text-center mb-4" />
+            </StackLayout>
+
+            <StackLayout class="mb-6">
+                <Label text="Or continue with" class="text-gray-500 text-center mb-4" />
+                
+                <GridLayout columns="*, *, *" class="mb-4">
+                    <Button col="0" text="&#xf1a0;" 
+                            class="fas bg-white text-xl p-3 m-1 rounded-lg"
+                            tap="{{ onGoogleSignIn }}" />
+                    <Button col="1" text="&#xf09b;" 
+                            class="fas bg-white text-xl p-3 m-1 rounded-lg"
+                            tap="{{ onGithubSignIn }}" />
+                    <Button col="2" text="&#xf095;" 
+                            class="fas bg-white text-xl p-3 m-1 rounded-lg"
+                            tap="{{ onPhoneSignIn }}" />
+                </GridLayout>
+            </StackLayout>
+
+            <Label class="text-center">
+                <FormattedString>
+                    <Span text="Don't have an account? " />
+                    <Span text="Sign Up" 
+                          tap="{{ onRegister }}" 
+                          class="text-blue-600 font-semibold" />
+                </FormattedString>
+            </Label>
+        </StackLayout>
+    </ScrollView>
+</Page>

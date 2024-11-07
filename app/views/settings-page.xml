@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Settings" class="action-bar">
+        <NavigationButton text="Back" android.systemIcon="ic_menu_back" />
+    </ActionBar>
+
+    <ScrollView>
+        <StackLayout class="p-4">
+            <Label text="Privacy" class="text-lg font-bold mb-2" />
+            
+            <GridLayout rows="auto, auto, auto" columns="*, auto" class="mb-4">
+                <Label row="0" col="0" text="Last Seen" class="text-base" />
+                <DropDown row="0" col="1" 
+                    items="{{ privacyOptions }}" 
+                    selectedIndex="{{ lastSeenVisibilityIndex }}"
+                    class="w-32" />
+
+                <Label row="1" col="0" text="Profile Photo" class="text-base" />
+                <DropDown row="1" col="1" 
+                    items="{{ privacyOptions }}" 
+                    selectedIndex="{{ profilePhotoVisibilityIndex }}"
+                    class="w-32" />
+
+                <Label row="2" col="0" text="Read Receipts" class="text-base" />
+                <Switch row="2" col="1" checked="{{ readReceipts }}" />
+            </GridLayout>
+
+            <Label text="Notifications" class="text-lg font-bold mb-2" />
+            <GridLayout rows="auto, auto" columns="*, auto" class="mb-4">
+                <Label row="0" col="0" text="Message Notifications" class="text-base" />
+                <Switch row="0" col="1" checked="{{ messageNotifications }}" />
+
+                <Label row="1" col="0" text="Meeting Reminders" class="text-base" />
+                <Switch row="1" col="1" checked="{{ meetingReminders }}" />
+            </GridLayout>
+
+            <Label text="Language" class="text-lg font-bold mb-2" />
+            <DropDown items="{{ languages }}" 
+                     selectedIndex="{{ preferredLanguageIndex }}"
+                     class="mb-4" />
+
+            <Button text="Clear Chat History" 
+                    tap="{{ clearHistory }}"
+                    class="bg-red-500 text-white" />
+        </StackLayout>
+    </ScrollView>
+</Page>

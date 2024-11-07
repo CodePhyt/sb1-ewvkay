@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="LingualLink" />
+    
+    <StackLayout class="p-4">
+        <Image src="~/assets/logo.png" class="h-32 w-32 mb-4" />
+        
+        <TextField hint="Email" text="{{ email }}" keyboardType="email" class="input mb-2" />
+        <TextField hint="Password" text="{{ password }}" secure="true" class="input mb-4" />
+        
+        <Button text="Sign In" tap="{{ onSignIn }}" class="btn btn-primary mb-2" />
+        <Button text="Sign in with Google" tap="{{ onGoogleSignIn }}" class="btn btn-secondary mb-2" />
+        
+        <Label text="Don't have an account?" class="text-center mb-2" />
+        <Button text="Register" tap="{{ onRegister }}" class="btn btn-outline" />
+    </StackLayout>
+</Page>

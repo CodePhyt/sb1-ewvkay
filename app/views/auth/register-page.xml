@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-gray-100">
+    <ActionBar title="Create Account" class="action-bar">
+        <NavigationButton text="Back" />
+    </ActionBar>
+    
+    <ScrollView>
+        <StackLayout class="p-6">
+            <TextField hint="Full Name" 
+                      text="{{ fullName }}" 
+                      class="mb-3 p-3 bg-white rounded-lg" />
+            
+            <TextField hint="Email" 
+                      text="{{ email }}" 
+                      keyboardType="email" 
+                      autocorrect="false" 
+                      autocapitalizationType="none"
+                      class="mb-3 p-3 bg-white rounded-lg" />
+            
+            <TextField hint="Password" 
+                      text="{{ password }}" 
+                      secure="true"
+                      class="mb-3 p-3 bg-white rounded-lg" />
+            
+            <TextField hint="Confirm Password" 
+                      text="{{ confirmPassword }}" 
+                      secure="true"
+                      class="mb-4 p-3 bg-white rounded-lg" />
+            
+            <DropDown items="{{ languages }}" 
+                     selectedIndex="{{ preferredLanguageIndex }}"
+                     hint="Select your language"
+                     class="mb-4 p-3 bg-white rounded-lg" />
+            
+            <Button text="Create Account" 
+                    tap="{{ onRegister }}" 
+                    class="bg-blue-600 text-white font-semibold p-3 rounded-lg mb-4" />
+            
+            <Label textWrap="true" class="text-center text-gray-500 text-sm">
+                <FormattedString>
+                    <Span text="By signing up, you agree to our " />
+                    <Span text="Terms" tap="{{ onTerms }}" class="text-blue-600" />
+                    <Span text=" and " />
+                    <Span text="Privacy Policy" tap="{{ onPrivacy }}" class="text-blue-600" />
+                </FormattedString>
+            </Label>
+        </StackLayout>
+    </ScrollView>
+</Page>

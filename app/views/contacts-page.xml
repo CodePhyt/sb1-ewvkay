@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Contacts" class="action-bar">
+        <ActionItem ios.position="right" android.position="actionBar"
+                   text="&#xf067;" class="fas"
+                   tap="{{ addContact }}" />
+    </ActionBar>
+
+    <GridLayout rows="auto, *">
+        <SearchBar row="0" hint="Search contacts..." 
+                  text="{{ searchQuery }}"
+                  submit="{{ onSearch }}"
+                  class="mb-2" />
+
+        <ListView row="1" items="{{ contacts }}" class="list-group">
+            <ListView.itemTemplate>
+                <GridLayout columns="auto, *, auto" class="list-group-item p-2">
+                    <Image col="0" src="{{ avatar }}" class="rounded-full w-12 h-12" />
+                    <StackLayout col="1" class="ml-2">
+                        <Label text="{{ name }}" class="font-semibold" />
+                        <Label text="{{ status }}" class="text-sm text-gray-500" />
+                    </StackLayout>
+                    <Button col="2" text="&#xf141;" class="fas"
+                            tap="{{ $parent.onContactOptions }}" />
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </GridLayout>
+</Page>
